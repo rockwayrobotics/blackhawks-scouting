@@ -8,10 +8,6 @@
         {
           "name": "Scouter Name",
           "type": "text",
-          "validation": {
-            "comparison": "greater",
-            "value": 0
-          }
         },
         {
           "name": "Starting Position",
