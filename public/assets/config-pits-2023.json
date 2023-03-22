@@ -9,14 +9,6 @@
         {
           "name": "Team Number",
           "type": "number"
-        },
-        {
-          "name": "Drive Coach",
-          "type": "text"
-        },
-        {
-          "name": "Driver Names",
-          "type": "text"
         }
       ]
     },
@@ -24,19 +16,7 @@
       "name": "Robot",
       "widgets": [
         {
-          "name": "Height",
-          "type": "number"
-        },
-        {
-          "name": "Length",
-          "type": "number"
-        },
-        {
           "name": "Width",
-          "type": "number"
-        },
-        {
-          "name": "Wheel-Bumper Distance",
           "type": "number"
         },
         {
@@ -47,42 +27,52 @@
           "name": "Drivetrain",
           "type": "dropdown",
           "options": [
-            "West Coast",
             "Swerve",
-            "Butterfly",
             "Mecanum",
-            "Other"
+            "Tank"
           ]
         },
-        {
-          "name": "Swerve Motor Type",
-          "type": "dropdown",
-          "options": [
-            "Neo",
-            "Falcon",
-            "Cim"
-          ]
-        },
-        {
-          "name": "Swerve Type",
-          "type": "dropdown",
-          "options": [
-            "No swerve",
-            "L1",
-            "L2",
-            "L3",
-            "L4",
-            "Neo",
-            "Falcon",
-            "Custom"
-          ]
-        },
+		{
+			"name": "Motor Type",
+			"type": "dropdown",
+			"options": [
+				"Neo",
+				"Falcon",
+				"Cim",
+				"Other"
+			]
+		},
         {
           "name": "Has Driver Camera",
           "type": "checkbox"
         }
       ]
     },
+	{
+		"name": "Autos",
+		"widgets": [
+			{
+				"name": "Can Score in Auto",
+				"type": "checkbox"
+			},
+			{
+				"name": "Can Balance in Auto",
+				"type": "checkbox"
+			},
+			{
+			  "name": "Can Score In",
+			  "type": "multicheckbox",
+			  "options": [
+				"High Cone",
+				"High Cube",
+				"Medium Cone",
+				"Medium Cube",
+				"Low Cone",
+				"Low Cube"
+			  ]
+			}
+		]
+	},
     {
       "name": "Match Play",
       "widgets": [
@@ -111,14 +101,6 @@
             "Medium Cube",
             "Low Cone",
             "Low Cube"
-          ]
-        },
-        {
-          "name": "Scoring Methods",
-          "type": "multicheckbox",
-          "options": [
-            "Manual",
-            "Auto"
           ]
         },
         {
