@@ -7,7 +7,7 @@
       "widgets": [
         {
           "name": "Scouter Name",
-          "type": "text",
+          "type": "text"
         },
         {
           "name": "Starting Position",
