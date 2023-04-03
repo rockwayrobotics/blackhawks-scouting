@@ -1,7 +1,7 @@
 <template>
   <FormPage title="Download Data" ref="page">
     <FormGroup :label-type="LabelType.None" :colspan="2" align="center">
-      <button @click="clearForm">Save and Clear Form</button>
+      <button :style="{ backgroundColor: buttonClicked ? '#00ff00' : '' }" @click="clearForm">Save and Clear Form</button>
     </FormGroup>
     <FormGroup :label-type="LabelType.None">
       <div style="height: 20px;"></div>
@@ -23,7 +23,7 @@
 import FormPage from "./FormPage.vue";
 import FormGroup from "./FormGroup.vue";
 import { LabelType } from "@/common/shared";
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import { useConfigStore, useWidgetsStore } from "@/common/stores";
 import { useRouter } from "vue-router";
 
@@ -32,11 +32,13 @@ const widgets = useWidgetsStore();
 
 const router = useRouter();
 
-const page = $ref<InstanceType<typeof FormPage>>();
-defineExpose({ title: computed(() => page?.title), setShown: computed(() => page?.setShown) });
+const page = ref<InstanceType<typeof FormPage>>();
+const buttonClicked = ref(false);
+defineExpose({ title: computed(() => page?.value?.title), setShown: computed(() => page?.value?.setShown) });
 
 function clearForm() {
   widgets.save();
   router.go(0); // Reload the page
+  buttonClicked.value = true; // Set buttonClicked to true when button is clicked
 }
 </script>

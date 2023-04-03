@@ -49,7 +49,7 @@
       ]
     },
 	{
-		"name": "Autos",
+		"name": "Auto1",
 		"widgets": [
 			{
 				"name": "Can Score in Auto",
@@ -70,7 +70,69 @@
 				"Low Cone",
 				"Low Cube"
 			  ]
-			}
+			},
+      {
+        "name": "Auto Comments",
+        "type": "textarea"
+      }
+		]
+	},
+  {
+		"name": "Auto2",
+		"widgets": [
+			{
+				"name": "Can Score in Auto",
+				"type": "checkbox"
+			},
+			{
+				"name": "Can Balance in Auto",
+				"type": "checkbox"
+			},
+			{
+			  "name": "Can Score In",
+			  "type": "multicheckbox",
+			  "options": [
+				"High Cone",
+				"High Cube",
+				"Medium Cone",
+				"Medium Cube",
+				"Low Cone",
+				"Low Cube"
+			  ]
+			},
+      {
+        "name": "Auto Comments",
+        "type": "textarea"
+      }
+		]
+	},
+  {
+		"name": "Auto3",
+		"widgets": [
+			{
+				"name": "Can Score in Auto",
+				"type": "checkbox"
+			},
+			{
+				"name": "Can Balance in Auto",
+				"type": "checkbox"
+			},
+			{
+			  "name": "Can Score In",
+			  "type": "multicheckbox",
+			  "options": [
+				"High Cone",
+				"High Cube",
+				"Medium Cone",
+				"Medium Cube",
+				"Low Cone",
+				"Low Cube"
+			  ]
+			},
+      {
+        "name": "Auto Comments",
+        "type": "textarea"
+      }
 		]
 	},
     {
