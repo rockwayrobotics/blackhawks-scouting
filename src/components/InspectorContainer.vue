@@ -13,8 +13,8 @@
       <button @click="generateQRCode">Generate QR Code for latest round</button>
     </template>
   </div>
-  <div>
-    <div class="w-full h-full" id="qrcode"></div>
+  <div class="w-full h-full flex justify-content items-center">
+    <div class="w-full h-full flex justify-content items-center" id="qrcode"></div>
   </div>
   <div class="table-container">
     <span v-if="selectedEntry === undefined">No Data</span>
@@ -30,8 +30,6 @@ import { useWidgetsStore } from "@/common/stores.js";
 
 const widgets = useWidgetsStore();
 let selectedIdx = $ref(0); // The index of the entry selected in the combobox
-
-import lzma from 'lzma-js-simple'
 const downloadLink = $ref<HTMLAnchorElement>();
 const selectedRecords = $ref(new Set<number>());
 const hasSelectedRecords = $computed(() => selectedRecords.size > 0);
