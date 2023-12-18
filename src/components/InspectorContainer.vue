@@ -10,8 +10,11 @@
       <button @click="deleteData">Delete</button>
       <button @click="downloadData">Download</button>
       <button @click="clearData">Clear All</button>
-      <button >Make QR CODE FROM LATEST LINE</button>
+      <button @click="generateQRCode">Generate QR Code for latest round</button>
     </template>
+  </div>
+  <div>
+    <div class="w-full h-full" id="qrcode"></div>
   </div>
   <div class="table-container">
     <span v-if="selectedEntry === undefined">No Data</span>
@@ -21,12 +24,13 @@
 </template>
 
 <script setup lang="ts">
-
+import QRcode from 'easyqrcodejs';
 import InspectorTable from "./InspectorTable.vue";
 import { useWidgetsStore } from "@/common/stores.js";
 
 const widgets = useWidgetsStore();
 let selectedIdx = $ref(0); // The index of the entry selected in the combobox
+
 
 const downloadLink = $ref<HTMLAnchorElement>();
 const selectedRecords = $ref(new Set<number>());
@@ -34,6 +38,22 @@ const hasSelectedRecords = $computed(() => selectedRecords.size > 0);
 
 const entries = $computed(() => [...widgets.savedData.keys()]); // The entries in local storage
 const selectedEntry = $computed(() => widgets.savedData.get(entries[selectedIdx])); // The selected entry
+const entries_2 = $computed(() => widgets.savedData.get(entries[entries.length - 1])); // The entries in local storage
+JSON.stringify(entries_2);
+const generateQRCode = () => {
+  console.log(JSON.stringify(entries_2))
+  const qrCodeOptions = {
+    text: 'Hello, QR Code!', // Change this text to the data you want in the QR code
+    width: 400,
+    height: 400,
+    colorDark: '#000000',
+    colorLight: '#ffffff',
+    correctLevel: QRcode.CorrectLevel.H,
+  };
+
+  const qrcode = new QRcode(document.getElementById('qrcode'), qrCodeOptions);
+  qrcode.makeCode(JSON.stringify(entries_2));
+};
 
 // Filters records in the selected entry based on the user selection.
 // If there are no records selected, the filter directly uses the given state, returning either all or no records.
@@ -75,6 +95,9 @@ function clearData() {
 </script>
 
 <style>
+#qrcode > :not(canvas:nth-last-child(1)){
+  display: none;
+}
 .table-container {
   overflow: auto;
 }
