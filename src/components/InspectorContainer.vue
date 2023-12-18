@@ -10,6 +10,7 @@
       <button @click="deleteData">Delete</button>
       <button @click="downloadData">Download</button>
       <button @click="clearData">Clear All</button>
+      <button >Make QR CODE FROM LATEST LINE</button>
     </template>
   </div>
   <div class="table-container">
@@ -20,6 +21,7 @@
 </template>
 
 <script setup lang="ts">
+
 import InspectorTable from "./InspectorTable.vue";
 import { useWidgetsStore } from "@/common/stores.js";
 
@@ -68,6 +70,8 @@ function clearData() {
   widgets.savedData.clear();
   selectedIdx = 0; // Reset selected index
 }
+
+
 </script>
 
 <style>
